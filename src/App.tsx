@@ -3,8 +3,8 @@ import './index.css';
 import AdminBoundaries from './components/AdminBoundaries';
 import PostalCodes from './components/PostalCodes';
 import ParliamentBoundaries from './components/ParliamentBoundaries';
-import RiverAnalysis from './components/RiverAnalysis';
-import FormatConverter from './components/FormatConverter';
+import Rivers from './components/Rivers';
+import Converter from './components/Converter';
 import VectorCalculator from './components/VectorCalculator';
 
 type NavItem = 'admin' | 'postal' | 'parliament' | 'rivers' | 'converter' | 'calculator';
@@ -13,29 +13,23 @@ const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<NavItem>('admin');
 
   const navItems: { id: NavItem; label: string; icon: string }[] = [
-    { id: 'admin', label: 'Admin Data', icon: '🏢' },
-    { id: 'postal', label: 'Postal Codes', icon: '📬' },
+    { id: 'admin', label: 'Admin Data', icon: '🗺️' },
+    { id: 'postal', label: 'Postal Codes', icon: '📮' },
     { id: 'parliament', label: 'Parliament', icon: '🏛️' },
-    { id: 'rivers', label: 'Rivers', icon: '💧' },
+    { id: 'rivers', label: 'Rivers', icon: '🌊' },
     { id: 'converter', label: 'Converter', icon: '🔄' },
-    { id: 'calculator', label: 'Calculator', icon: '📐' },
+    { id: 'calculator', label: 'Calculator', icon: '📊' },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-cyan-600 shadow-lg">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="text-4xl">🌍</div>
-            <div>
-              <h1 className="text-3xl font-bold text-white">GeoFormatX Pro</h1>
-              <p className="text-cyan-100 text-sm">React + Vercel Edition</p>
-            </div>
-          </div>
+      <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-white">GeoFormatX Pro</h1>
+          <p className="text-cyan-100 text-sm">React + Vercel Edition</p>
           <p className="text-white text-opacity-90">Geographic data format conversion and vector analysis tool</p>
         </div>
-      </header>
+      </div>
 
       {/* Navigation Sidebar */}
       <div className="max-w-7xl mx-auto flex gap-0">
@@ -64,8 +58,8 @@ const App: React.FC = () => {
             {activeTab === 'admin' && <AdminBoundaries />}
             {activeTab === 'postal' && <PostalCodes />}
             {activeTab === 'parliament' && <ParliamentBoundaries />}
-            {activeTab === 'rivers' && <RiverAnalysis />}
-            {activeTab === 'converter' && <FormatConverter />}
+            {activeTab === 'rivers' && <Rivers />}
+            {activeTab === 'converter' && <Converter />}
             {activeTab === 'calculator' && <VectorCalculator />}
           </div>
         </main>
