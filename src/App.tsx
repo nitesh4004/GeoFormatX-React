@@ -1,75 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css';
-import AdminBoundaries from './components/AdminBoundaries';
-import PostalCodes from './components/PostalCodes';
-import ParliamentBoundaries from './components/ParliamentBoundaries';
-import Rivers from './components/Rivers';
-import Converter from './components/Converter';
-import VectorCalculator from './components/VectorCalculator';
-
-type NavItem = 'admin' | 'postal' | 'parliament' | 'rivers' | 'converter' | 'calculator';
 
 const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<NavItem>('admin');
-
-  const navItems: { id: NavItem; label: string; icon: string }[] = [
-    { id: 'admin', label: 'Admin Data', icon: '🗺️' },
-    { id: 'postal', label: 'Postal Codes', icon: '📮' },
-    { id: 'parliament', label: 'Parliament', icon: '🏛️' },
-    { id: 'rivers', label: 'Rivers', icon: '🌊' },
-    { id: 'converter', label: 'Converter', icon: '🔄' },
-    { id: 'calculator', label: 'Calculator', icon: '📊' },
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="flex items-center justify-center gap-3 mb-4">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-white">GeoFormatX Pro</h1>
-          <p className="text-cyan-100 text-sm">React + Vercel Edition</p>
-          <p className="text-white text-opacity-90">Geographic data format conversion and vector analysis tool</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+      <div className="text-center text-white">
+        <h1 className="text-6xl font-bold mb-4">GeoFormatX Pro</h1>
+        <p className="text-2xl mb-8">React + Vercel Edition</p>
+        <p className="text-lg mb-12 max-w-2xl">Geographic data format conversion and vector analysis tool</p>
+        <div className="bg-white bg-opacity-20 p-8 rounded-lg backdrop-blur-md">
+          <p className="text-xl font-semibold mb-4">✨ Welcome to GeoFormatX Pro!</p>
+          <p className="text-lg mb-4">This is a modern web application for geographic data format conversion and vector analysis.</p>
+          <p className="text-base">Built with React, TypeScript, and Vite • Deployed on Vercel</p>
         </div>
       </div>
-
-      {/* Navigation Sidebar */}
-      <div className="max-w-7xl mx-auto flex gap-0">
-        <aside className="w-56 bg-slate-800 border-r border-slate-700 min-h-[calc(100vh-120px)]">
-          <nav className="p-4 space-y-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all ${
-                  activeTab === item.id
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-slate-300 hover:bg-slate-700'
-                }`}
-              >
-                <span className="mr-2">{item.icon}</span>
-                {item.label}
-              </button>
-            ))}
-          </nav>
-        </aside>
-
-        {/* Main Content */}
-        <main className="flex-1 p-8 bg-slate-850 overflow-auto min-h-[calc(100vh-120px)]">
-          <div className="max-w-6xl mx-auto">
-            {activeTab === 'admin' && <AdminBoundaries />}
-            {activeTab === 'postal' && <PostalCodes />}
-            {activeTab === 'parliament' && <ParliamentBoundaries />}
-            {activeTab === 'rivers' && <Rivers />}
-            {activeTab === 'converter' && <Converter />}
-            {activeTab === 'calculator' && <VectorCalculator />}
-          </div>
-        </main>
-      </div>
-
-      {/* Footer */}
-      <footer className="bg-slate-800 border-t border-slate-700 py-4 text-center text-slate-400 text-sm">
-        <p>GeoFormatX Pro © 2026 - Geographic Data Format Conversion & Vector Analysis</p>
-        <p className="mt-2">Developed by Nitesh Kumar | Deployed on Vercel</p>
-      </footer>
     </div>
   );
 };
